@@ -1,0 +1,30 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+.vscode/
+
+# Restricted or large research data
+data/raw/
+data/nifti/
+data/derivatives/
+*.dcm
+*.nii
+*.nii.gz
+*.mgz
+*.lta
+
+# Model weights and generated deformation fields
+models/*.h5
+models/*.keras
+*.npz
+outputs/
+experiments/
+*.egg-info/
+
+# Local configuration and logs
+.env
+*.log

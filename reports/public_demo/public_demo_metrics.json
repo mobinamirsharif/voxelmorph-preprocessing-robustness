@@ -1,0 +1,21 @@
+{
+  "provenance": {
+    "classification": "public",
+    "atlas": "https://raw.githubusercontent.com/voxelmorph/voxelmorph/75ac2a2cd7298af3b3d563a3f0cfa000e410d099/data/atlas.npz",
+    "test_scan": "https://raw.githubusercontent.com/voxelmorph/voxelmorph/75ac2a2cd7298af3b3d563a3f0cfa000e410d099/data/test_scan.npz",
+    "model_filename": "vxm_dense_brain_T1_3D_mse.h5",
+    "model_sha256": "8e5fe6bcbca68b4fa867864460315fdaa7e00139cd522379cea79db5e63a9e3c"
+  },
+  "shape": [
+    160,
+    192,
+    224
+  ],
+  "mse_before": 0.004531273618340492,
+  "mse_after": 0.0011790276039391756,
+  "mean_nonzero_label_dice_before": 0.47432466777386095,
+  "mean_nonzero_label_dice_after": 0.573134240539435,
+  "inference_seconds": 9.385800901000039,
+  "timing_scope": "single neural-network forward pass only",
+  "limitations": "This public smoke test checks software execution on upstream example assets; it is not clinical validation or a population benchmark."
+}

@@ -19,6 +19,28 @@ and non-finite values are detected without using medical images. Additional
 tests verify that moved-image and warp outputs are obtained from a single graph
 prediction with the expected shapes.
 
+## Public-data validation
+
+Four public T1-weighted scans from OpenNeuro `ds005125` v1.0.0 were each
+registered to the atlas. Inputs were reoriented from their affines, linearly
+resampled to the atlas grid, converted to `float32`, and robustly nonzero
+min-max scaled to `[0, 1]`. The table is transcribed from the committed
+[metrics JSON](../reports/public_validation/public_validation_metrics.json).
+
+| Scan | MSE | Correlation | Intensity-derived Mask Dice | Mean displacement (voxels) | Maximum displacement (voxels) | Non-positive Jacobian (%) |
+|---|---:|---:|---:|---:|---:|---:|
+| sub-01 | 0.019439 | 0.654155 | 0.712679 | 7.074867 | 31.060934 | 3.009614 |
+| sub-02 | 0.016467 | 0.674027 | 0.709563 | 7.091130 | 31.052210 | 1.822335 |
+| sub-03 | 0.015078 | 0.713668 | 0.715964 | 6.417634 | 27.718321 | 1.069569 |
+| sub-04 | 0.015863 | 0.701600 | 0.712197 | 6.777920 | 29.712238 | 2.402169 |
+
+See the [validation figure](../figures/public_validation/public_validation_metrics.png)
+and [sanitized manifest](../reports/public_validation/public_validation_manifest.json).
+This four-scan experiment validates software and method execution only. It has
+no anatomical ground-truth labels, and intensity-derived Mask Dice is not
+anatomical segmentation accuracy. It supports no clinical, biological, or
+population-level conclusion.
+
 ## Controlled-access observation boundary
 
 The dtype failure was initially identified during controlled-access imaging

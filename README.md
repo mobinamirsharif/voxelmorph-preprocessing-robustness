@@ -77,10 +77,13 @@ Public CI does not execute the controlled-data workflow.
 │   └── TROUBLESHOOTING.md
 ├── models/README.md
 ├── reports/
-│   └── public_demo/public_demo_metrics.json
+│   ├── public_demo/public_demo_metrics.json
+│   └── public_validation/
+├── figures/public_validation/
 ├── scripts/
 │   ├── audit_nifti.py
 │   ├── prepare_atlas.py
+│   ├── plot_public_validation.py
 │   ├── preprocess_session.py
 │   ├── run_dtype_ablation.py
 │   ├── run_public_demo.py
@@ -93,6 +96,7 @@ Public CI does not execute the controlled-data workflow.
 │   ├── naming.py
 │   └── quality.py
 └── tests/
+    └── test_public_validation_artifacts.py
 ```
 
 ## Installation
@@ -165,6 +169,8 @@ OpenNeuro `ds005125` v1.0.0. Each scan was registered to the VoxelMorph atlas
 with the atlas grid, after affine-derived reorientation, linear resampling, and
 robust nonzero min-max scaling to `[0, 1]`. Metrics and the figure below come
 only from these four real executions:
+
+![Public VoxelMorph validation metrics](figures/public_validation/public_validation_metrics.png)
 
 - [Validation README](reports/public_validation/README.md)
 - [Measured metrics](reports/public_validation/public_validation_metrics.json)

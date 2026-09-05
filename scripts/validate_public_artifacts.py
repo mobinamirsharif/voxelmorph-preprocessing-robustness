@@ -11,7 +11,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_REPORT = ROOT / "reports" / "public_demo" / "public_demo_metrics.json"
-ALLOWED_REPORTS = {PUBLIC_REPORT.relative_to(ROOT).as_posix()}
+PUBLIC_VALIDATION = {ROOT / "reports" / "public_validation" / n for n in ("public_validation_metrics.json", "public_validation_manifest.json", "README.md")}
+PUBLIC_VALIDATION_FIGURE = ROOT / "figures" / "public_validation" / "public_validation_metrics.png"
+ALLOWED_REPORTS = {PUBLIC_REPORT.relative_to(ROOT).as_posix()} | {p.relative_to(ROOT).as_posix() for p in PUBLIC_VALIDATION}
 MARKDOWN_FILES = (
     ROOT / "README.md",
     ROOT / "data" / "README.md",
@@ -83,6 +85,12 @@ def validate_public_report() -> None:
     for key in ("atlas", "test_scan", "model_filename", "model_sha256"):
         if not provenance.get(key):
             raise ValueError(f"Public report provenance is missing {key}")
+    validation = json.loads((ROOT / "reports/public_validation/public_validation_metrics.json").read_text())
+    manifest = json.loads((ROOT / "reports/public_validation/public_validation_manifest.json").read_text())
+    if validation.get("dataset", {}).get("license") != "CC0-1.0" or manifest.get("dataset") != validation.get("dataset"):
+        raise ValueError("Public validation provenance/license mismatch")
+    if len(validation.get("runs", [])) != 4 or not PUBLIC_VALIDATION_FIGURE.is_file():
+        raise ValueError("Public validation artifacts incomplete")
 
 
 def validate_no_binary_research_artifacts(files: list[Path]) -> None:
@@ -93,7 +101,7 @@ def validate_no_binary_research_artifacts(files: list[Path]) -> None:
         lowered = relative.lower()
         if lowered.endswith(FORBIDDEN_SUFFIXES):
             raise ValueError(f"Forbidden research or model artifact: {relative}")
-        if lowered.endswith(FORBIDDEN_IMAGE_SUFFIXES):
+        if lowered.endswith(FORBIDDEN_IMAGE_SUFFIXES) and path.resolve() != PUBLIC_VALIDATION_FIGURE.resolve():
             raise ValueError(f"Image publication artifact is not allowlisted: {relative}")
         if "warp" in path.name.lower() and path.suffix.lower() != ".py":
             raise ValueError(f"Potential deformation artifact: {relative}")

@@ -23,6 +23,8 @@ models/*.keras
 *.npz
 outputs/
 experiments/
+/work/
+/work/public_validation/
 *.egg-info/
 
 # Local configuration and logs

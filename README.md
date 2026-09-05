@@ -158,6 +158,26 @@ was generated from the official public inputs and records its provenance.
 This demo is a software smoke test, not anatomical validation, clinical
 validation, or a population benchmark.
 
+## Public-data validation
+
+The independent public-data validation uses four public T1-weighted scans from
+OpenNeuro `ds005125` v1.0.0. Each scan was registered to the VoxelMorph atlas
+with the atlas grid, after affine-derived reorientation, linear resampling, and
+robust nonzero min-max scaling to `[0, 1]`. Metrics and the figure below come
+only from these four real executions:
+
+- [Validation README](reports/public_validation/README.md)
+- [Measured metrics](reports/public_validation/public_validation_metrics.json)
+- [Sanitized manifest](reports/public_validation/public_validation_manifest.json)
+- [Metrics figure](figures/public_validation/public_validation_metrics.png)
+
+This is software/method reproducibility validation, not clinical validation or
+population-level generalization. The earlier ADNI experiment remains a
+separate, limited, unchanged case study; its data and participant-level
+results are not published. Raw MRI, model weights, atlas, warp fields, and
+work outputs are not included in GitHub. This public validation complements,
+and does not replace, the ADNI case study.
+
 ## Controlled dtype ablation
 
 `scripts/run_dtype_ablation.py` preserves the controlled comparison between

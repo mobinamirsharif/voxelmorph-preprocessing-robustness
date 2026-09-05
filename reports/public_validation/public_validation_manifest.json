@@ -1,0 +1,18 @@
+{
+  "dataset": {
+    "accession": "ds005125",
+    "version": "v1.0.0",
+    "doi": "10.18112/openneuro.ds005125.v1.0.0",
+    "license": "CC0-1.0"
+  },
+  "preprocessing": {
+    "reorientation": "affine-derived orientation",
+    "resampling": "atlas reference grid",
+    "interpolation": "linear",
+    "conversion": "float32",
+    "intensity": "robust nonzero min-max scaling to [0,1]",
+    "parameters": {"foreground": "voxel > 0", "lower": "nonzero minimum", "upper": "nonzero maximum"}
+  },
+  "registrations": ["atlas <- sub-01", "atlas <- sub-02", "atlas <- sub-03", "atlas <- sub-04"],
+  "note": "Source paths and raw MRI metadata are intentionally omitted; raw data and full-resolution outputs remain outside GitHub."
+}

@@ -1,0 +1,19 @@
+{
+  "dataset": {"accession": "ds005125", "version": "v1.0.0", "doi": "10.18112/openneuro.ds005125.v1.0.0", "license": "CC0-1.0"},
+  "model": {"filename": "vxm_dense_brain_T1_3D_mse.h5", "sha256": "8e5fe6bcbca68b4fa867864460315fdaa7e00139cd522379cea79db5e63a9e3c"},
+  "atlas": {"provenance": "VoxelMorph upstream atlas_T1w.nii.gz", "sha256": "a56596c3c5290d2efd6acb52bb13186386cb1c6c7261ae85c5e6958f826617e9"},
+  "source_sha256": {
+    "sub-01": "e281464f597e709020e556cb6699600312a9bbe843a32a9d678ac8c7eb5ec778",
+    "sub-02": "f6c40cdf18dabd4b3f18db2c7d7f03b0434bc89d8f99d7f64743d3ba905cb2c8",
+    "sub-03": "bf3616851a2a55c3343a4e7aee10087c717182edda8bb2c71c19bbc67555861c",
+    "sub-04": "ee5745d367abc16632300a6da2d4aea22a82475eadd22bb416bda7925642c16b"
+  },
+  "preprocessing": {"reorientation": "affine-derived", "resampling": "atlas grid", "interpolation": "linear", "dtype": "float32", "intensity": "robust nonzero min-max to [0,1]"},
+  "runs": [
+    {"scan": "sub-01", "shape": [160,192,224], "warp_shape": [160,192,224,3], "dtype": "float32", "finite": true, "mse": 0.0194393769, "correlation": 0.6541547903, "mask_dice": 0.7126792024, "mean_displacement_voxels": 7.07486677, "max_displacement_voxels": 31.0609341, "jacobian_percentiles": [-14.2222958,0.0119511,0.9287165,5.8797631,201.098862], "jacobian_nonpositive_percent": 3.0096144, "forward_seconds": 21.7281},
+    {"scan": "sub-02", "shape": [160,192,224], "warp_shape": [160,192,224,3], "dtype": "float32", "finite": true, "mse": 0.0164670870, "correlation": 0.6740273957, "mask_dice": 0.7095633508, "mean_displacement_voxels": 7.09112978, "max_displacement_voxels": 31.0522099, "jacobian_percentiles": [-10.1067963,0.0236228,0.9228590,5.5152630,129.666168], "jacobian_nonpositive_percent": 1.8223354, "forward_seconds": 22.2622},
+    {"scan": "sub-03", "shape": [160,192,224], "warp_shape": [160,192,224,3], "dtype": "float32", "finite": true, "mse": 0.0150778666, "correlation": 0.7136677454, "mask_dice": 0.7159635821, "mean_displacement_voxels": 6.41763353, "max_displacement_voxels": 27.7183208, "jacobian_percentiles": [-4.2402449,0.0256838,0.9197037,5.6323138,111.666679], "jacobian_nonpositive_percent": 1.0695685, "forward_seconds": 21.7610},
+    {"scan": "sub-04", "shape": [160,192,224], "warp_shape": [160,192,224,3], "dtype": "float32", "finite": true, "mse": 0.0158634689, "correlation": 0.7016003654, "mask_dice": 0.7121974396, "mean_displacement_voxels": 6.77792025, "max_displacement_voxels": 29.7122383, "jacobian_percentiles": [-6.3183002,0.0164207,0.9199642,5.7860003,90.969376], "jacobian_nonpositive_percent": 2.4021694, "forward_seconds": 22.1831}
+  ],
+  "limitations": ["four scans from one public dataset", "intensity-derived Dice is not anatomical ground truth", "no clinical or population-level claim", "raw MRI, weights, atlas, warp and full-resolution outputs excluded"]
+}

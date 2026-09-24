@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this pipeline, please cite this repository and the upstream methods listed in the README."
+title: "VoxelMorph Preprocessing Robustness: A Silent Dtype Failure Case Study in Longitudinal MRI Registration"
+type: software
+version: 0.2.1
+authors:
+  - family-names: Mirsharif
+    given-names: Mobina
+license: MIT

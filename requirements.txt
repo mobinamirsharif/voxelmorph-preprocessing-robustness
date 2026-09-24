@@ -1,0 +1,6 @@
+numpy==1.26.4
+nibabel==5.4.2
+scipy==1.15.3
+matplotlib==3.10.9
+tensorflow[and-cuda]==2.15.1
+https://github.com/voxelmorph/voxelmorph/archive/75ac2a2cd7298af3b3d563a3f0cfa000e410d099.zip

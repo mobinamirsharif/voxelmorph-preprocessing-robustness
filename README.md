@@ -17,6 +17,16 @@ The failure was initially observed during work with controlled-access imaging
 data. No raw or derived participant-level data, measurements, figures, paths,
 identifiers, or session-level results from that work are distributed here.
 
+## Repository history note
+
+This repository was rebuilt from a clean root commit on September 25, 2026,
+following a data-governance review. Earlier development history was
+intentionally discarded because it contained artifacts and implementation
+traces associated with controlled-access dataset work. The visible commit
+count therefore represents the sanitized publication history, not the full
+duration or scope of the project. The current tree contains only public,
+synthetic, or privacy-reviewed material suitable for release.
+
 ## The silent dtype failure
 
 With intensity scaling enabled, registration may produce small floating-point
